@@ -1,0 +1,9 @@
+import os
+from src import repos
+
+def test_list_py_files(tmp_path):
+    # Create a dummy .py file
+    f = tmp_path / "dummy.py"
+    f.write_text("print('hello')")
+    files = repos.list_py_files(str(tmp_path))
+    assert str(f) in files
